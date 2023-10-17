@@ -1,4 +1,6 @@
-﻿using GameJam.Levels;
+﻿using GameJam.Character;
+using GameJam.Graphic;
+using GameJam.Levels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,44 +13,53 @@ namespace GameJam.GameStart
     {
         public static void Start_Menu()
         {
-            Console.WriteLine("Velkommet til spillet 'The Great Beer Run'");
-            Console.WriteLine("Dit mål er at skaffe så meget øl så muligt");
-            Console.WriteLine("Du vil møde modstand og udfordringer på dit eventyr!");
-            Console.WriteLine("Beer if life!");
 
-            Console.WriteLine("Tryk 'Enter' hvis du har forstået og er klar");
-            Console.ReadKey();
+            bool state = true;
 
-            Intro intro = new Intro();
-            intro.GameIntro();
-        }
-
-        public static void Menu()
-        {
-            Console.WriteLine("Tryk 1 for at starte");
-            Console.WriteLine("Tryk 2 for at afslutte");
-
-            bool choise = true;
-            do
+            while (state == true)
             {
-                string value = Console.ReadLine();
+                //Sound.BeerRun();
+                Console.Clear();
+                AsciiArt.Ascii_Name();
+                //Ascii_Art.Ascii_GameStart();
+                //Made a new menu system, so we can iteract with it.
+                string playerChoice = Beautifier.CoolMenu("Welcome to the beer game", "Start the game", "Exit the game");
 
-                if (value == "1")
+                bool loopStage = true;
+
+                if (playerChoice == "Start the game")
                 {
-                    Start_Menu();
+                    Console.Clear();
+                    Info.GameInfo();
+
+                    while (loopStage == true)
+                    {
+                        Beautifier.CoolCenterLine("Hvad hedder du?", "blue");
+                        Player.Name = Console.ReadLine();
+                        if (Player.Name == "")
+                        {
+                            Console.WriteLine("Er du dum? Skriv dit navn!");
+                            loopStage = true;
+                        }
+                        else
+                        {
+                            loopStage = false;
+                        }
+                    }
+
+                    Console.Clear();
+                    state = false;
+                    Intro.GameIntro();
                 }
-                else if (value == "2")
+                else if (playerChoice == "Exit the game")
                 {
-                    choise = false;
+                    state = false;
+                    Console.Clear();
                     Environment.Exit(0);
-                }
-                else
-                {
-                    Console.WriteLine("Fejl input din spasser, brug dit hoved og prøv igen!");
-                }
+                    //SendKeys.SendWait("{ENTER}");
 
+                }
             }
-            while (choise);
         }
 
     }

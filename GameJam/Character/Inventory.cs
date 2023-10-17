@@ -1,4 +1,6 @@
-﻿using GameJam.Stuff;
+﻿using GameJam.Graphic;
+using GameJam.Stuff;
+using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,48 +26,71 @@ namespace GameJam.Character
 
             if (inventory.Count == 0)
             {
-                Items øl = new Items("Øl", 20);
-                Items snus = new Items("Snus", 25);
-                inventory.Add(øl);
-                inventory.Add(øl);
-                inventory.Add(snus);
+                Items cookie = new Items("Cookie", 10);
+                inventory.Add(cookie);
+
+                Items empty_slot = new Items("Empty_Slot", 0);
+
+                for (int i = 0; i < 6; i++)
+                {
+                    inventory.Add(empty_slot);
+                }
+
                 isInitialize = true;
             }
 
         }
 
-        public static void Display_Inventory()
+        public static void DisplayInventory()
         {
-            Console.WriteLine("\tThis is your inventory");
+            Console.Clear();
+            AsciiArt.Ascii_Inventory();
+            Beautifier.CoolLine();
+            Console.WriteLine("This is your inventory");
             for (int i = 0; i < inventory.Count; i++)
             {
-                Console.WriteLine(i + " || " + inventory[i].Name + " || " + inventory[i].Item_stat);
+                Console.WriteLine(inventory[i].Name + " || " + inventory[i].Item_stat);
             }
             bool inv_State = true;
             while (inv_State == true)
             {
-                Console.WriteLine("Do you want to use anything from your inventroy");
-                Console.WriteLine("Yes / No");
-                string player_Answer = Console.ReadLine();
+                var player_Answer = AnsiConsole.Prompt(new SelectionPrompt<string>()
+                    .Title("Do you want to use anything from your inventroy\n ---------------------------")
+                    .PageSize(3)
+                    .AddChoices("yes", "no"));
 
-                if (player_Answer.ToLower() == "yes")
+                if (player_Answer == "yes")
                 {
-                    Console.WriteLine("Choose what index from your inventory you want :)");
-                    int inventory_Index = Convert.ToInt32(Console.ReadLine());
+                    bool player_state = true;
 
-                    PickFromInventory(inventory[inventory_Index]);
+                    while (player_state == true)
+                    {
+                        var inv_index = AnsiConsole.Prompt(new SelectionPrompt<string>()
+                            .Title("Choose what u want from your inventory \n ---------------------------")
+                            .PageSize(7)
+                            .AddChoices(inventory[0].Name, inventory[1].Name, inventory[2].Name, inventory[3].Name, inventory[4].Name, inventory[5].Name, inventory[6].Name));
 
+                        if (inv_index == "Empty_Slot")
+                        {
+                            Console.Clear();
+                            Beautifier.CoolWrite("red", "U dont have anything in that slot"); //this can add color to your text
+                            player_state = true;
+                        }
+                        else if (inv_index != "Empty_Slot")
+                        {
+                            int index = inventory.FindIndex(item => item.Name == inv_index);
+                            PickFromInventory(inventory[index]);
+                            player_state = false;
+                        }
+
+
+                    }
+                    inv_State = false;
+                }
+                else if (player_Answer == "no")
+                {
                     inv_State = false;
                     Console.Clear();
-                }
-                else if (player_Answer.ToLower() == "no")
-                {
-                    inv_State = false;
-                    Console.Clear();
-                }
-                else
-                {
-                    Console.WriteLine("Pla write the corret answer");
                 }
             }
 
@@ -73,13 +98,24 @@ namespace GameJam.Character
 
         public static void AddToInventory(Items item)
         {
-            inventory.Add(item);
+
+            for (int i = 0; i < inventory.Count; i++)
+            {
+                if (inventory[i].Name == "Empty_Slot")
+                {
+                    inventory.Add(item);
+                }
+            }
         }
 
         private static void PickFromInventory(Items item)
         {
+
             Player.Eat(item);
             inventory.Remove(item);
+            Items empty_slot = new Items("Empty_Slot", 0);
+            inventory.Add(empty_slot);
+
         }
     }
 }

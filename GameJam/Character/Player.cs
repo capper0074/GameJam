@@ -1,4 +1,6 @@
-﻿using GameJam.Stuff;
+﻿using GameJam.GameStart;
+using GameJam.Graphic;
+using GameJam.Stuff;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +12,11 @@ namespace GameJam.Character
     public static class Player
     {
 
-        public static int health { get; set; }
+        public static int Health { get; set; }
 
-        public static int stamina { get; set; }
+        public static int Stamina { get; set; }
 
-        public static string name { get; set; }
+        public static string Name { get; set; }
 
         private static bool isInitialize;
 
@@ -26,36 +28,35 @@ namespace GameJam.Character
             }
             else
             {
-                health = 100;
-                stamina = 100;
-                name = "Møller";
+                Health = 100;
+                Stamina = 100;
+                Name = "Møller";
                 isInitialize = true;
             }
         }
 
         public static void Display_Stats()
         {
-            Console.WriteLine("Stamina: " + stamina + " Health " + health);
+            Console.Clear();
+            Console.WriteLine("Your name are: " + Name);
+            Beautifier.CoolBar(Health, Stamina);
         }
 
         public static void Tick_Stamina()
         {
-            stamina = stamina - 10;
+            Stamina = Stamina - 10;
         }
 
         public static void Eat(Items food) //Tilføj mad her
-        {
+            {
+            Console.Clear();
+            AsciiArt.Ascii_StatIncrease();
+            Beautifier.CoolLine();
+            Health += food.Item_stat;
+            Stamina += food.Item_stat;
 
-            if (food.Name.ToLower() == "øl")
-            {
-                stamina += food.Item_stat;
-                health += food.Item_stat - 10;
-            }
-            else if (food.Name.ToLower() == "snus")
-            {
-                stamina += food.Item_stat;
-                health += food.Item_stat - 10;
-            }
+            Beautifier.CoolWrite("purple", $"Your Health have increased by {food.Item_stat}");
+            Beautifier.CoolWrite("purple", $"Your Stamina have increased by {food.Item_stat}");
         }
 
     }

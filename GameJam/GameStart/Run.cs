@@ -23,7 +23,7 @@ namespace GameJam.GameStart
             Player.Initialize();
             Inventory.Initialize();
 
-            MenuStart.Menu();
+            MenuStart.Start_Menu();
 
         }
 

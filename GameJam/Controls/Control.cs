@@ -1,5 +1,7 @@
 ﻿using GameJam.Character;
 using GameJam.GameStart;
+using GameJam.Graphic;
+using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,53 +14,55 @@ namespace GameJam.Controls
     {
         public static void Controls() //Should popup when the player needs to do something
         {
+
+            Console.Clear();
+
+
             bool state = true;
 
             while (state == true)
             {
-                Console.WriteLine("What do u want to do?");
-                Console.WriteLine("---------------------------");
-                Console.WriteLine("1 - See your stats");
-                Console.WriteLine("2 - Move");
-                Console.WriteLine("3 - See your inventory");
-                Console.WriteLine("4 - See your weapon");
-                Console.WriteLine("5 - Exit the game");
+                AsciiArt.Ascii_Stats();
+                Beautifier.CoolLine();
 
-                string playerChoice = Console.ReadLine();
+                string playerChoice = AnsiConsole.Prompt(new SelectionPrompt<string>()
+                    .Title("What do u want to do?")
+                    .PageSize(6)
+                    .AddChoices("See your stats", "Continue", "See your inventory", "See your weapon", "Exit the game"));
 
-                if (playerChoice == "1") //See stats
+                if (playerChoice == "See your stats") //See stats
                 {
                     Player.Display_Stats();
+                    Console.ReadLine();
+                    Console.Clear();
 
                 }
-                else if (playerChoice == "2") //Move Command
+                else if (playerChoice == "Continue") //Move Command
                 {
+                    Console.Clear();
                     Run.Game_Tick();
                     state = false;
 
                 }
-                else if (playerChoice == "3") //Inventory
+                else if (playerChoice == "See your inventory") //Inventory
                 {
-                    Inventory.Display_Inventory();
+                    Inventory.DisplayInventory();
+                    Console.ReadLine();
+                    Console.Clear();
 
                 }
-                else if (playerChoice == "4")
+                else if (playerChoice == "See your weapon")
                 {
                     WeaponSlot.DisplayCurrentWeapon();
-
+                    Console.ReadLine();
+                    Console.Clear();
                 }
-                else if (playerChoice == "5") //Exit
+                else if (playerChoice == "Exit the game") //Exit
                 {
                     state = false;
                     Console.Clear();
                     Environment.Exit(0);
 
-                }
-                else
-                {
-                    Console.WriteLine("---------------------------");
-                    Console.WriteLine("U entered a wrong value plz try agian");
-                    Console.Clear();
                 }
 
             }

@@ -8,7 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Saves\" />
+    <Compile Remove="Saves\**" />
+    <EmbeddedResource Remove="Saves\**" />
+    <None Remove="Saves\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Spectre.Console" Version="0.47.0" />
   </ItemGroup>
 
 </Project>

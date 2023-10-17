@@ -25,7 +25,7 @@ namespace GameJam.Fight
 
             while (game_State == true)
             {
-                if (Player.health <= 1)
+                if (Player.Health <= 1)
                 {
                     if (currentCreature.Enemy_Health <= 1)
                     {
@@ -34,7 +34,7 @@ namespace GameJam.Fight
                         currentCreature.Enemy_Health -= WeaponSlot.DisplayStat();
 
                         Console.WriteLine("The enemy attacks you back with: " + currentCreature.Attack_Value + " Damage");
-                        Player.health -= currentCreature.Attack_Value;
+                        Player.Health -= currentCreature.Attack_Value;
 
                         Console.WriteLine("This is round: " + i);
 
