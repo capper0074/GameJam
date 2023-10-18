@@ -47,14 +47,28 @@ namespace GameJam.Character
             Stamina = Stamina - 10;
         }
 
-        public static void Eat(Items food) //Tilføj mad her
+        public static void Eat(Items food) //Lortet er forkert
+        {
+            if(Health + food.Item_stat > 100)
             {
+                Health = 100;
+                if(Stamina + food.Item_stat > 100)
+                {
+                    Stamina = 100;
+                }
+                else
+                {
+                    Stamina += food.Item_stat;
+                }
+            }
+            else
+            {
+                Health += food.Item_stat;
+            }
+
             Console.Clear();
             AsciiArt.Ascii_StatIncrease();
             Beautifier.CoolLine();
-            Health += food.Item_stat;
-            Stamina += food.Item_stat;
-
             Beautifier.CoolWrite("purple", $"Your Health have increased by {food.Item_stat}");
             Beautifier.CoolWrite("purple", $"Your Stamina have increased by {food.Item_stat}");
         }

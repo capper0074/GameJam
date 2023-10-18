@@ -47,10 +47,11 @@ namespace GameJam.Character
             AsciiArt.Ascii_Inventory();
             Beautifier.CoolLine();
             Console.WriteLine("This is your inventory");
-            for (int i = 0; i < inventory.Count; i++)
-            {
-                Console.WriteLine(inventory[i].Name + " || " + inventory[i].Item_stat);
-            }
+
+            Beautifier.CoolPanel("", $"{inventory[0].Name}\n{inventory[1].Name}\n{inventory[2].Name}\n{inventory[3].Name}\n{inventory[4].Name}\n{inventory[5].Name}\n{inventory[6].Name}");
+            //Beautifier.CoolPanel("", $"{inventory[0].Item_stat}\n{inventory[1].Item_stat}\n{inventory[2].Item_stat}\n{inventory[3].Item_stat}\n{inventory[4].Item_stat}\n{inventory[5].Item_stat}\n{inventory[6].Item_stat}");
+
+
             bool inv_State = true;
             while (inv_State == true)
             {
@@ -61,12 +62,15 @@ namespace GameJam.Character
 
                 if (player_Answer == "yes")
                 {
+                    Console.Clear();
+
                     bool player_state = true;
 
                     while (player_state == true)
                     {
+                        Console.WriteLine("What do you want from your inventory");
+                        Beautifier.CoolLine();
                         var inv_index = AnsiConsole.Prompt(new SelectionPrompt<string>()
-                            .Title("Choose what u want from your inventory \n ---------------------------")
                             .PageSize(7)
                             .AddChoices(inventory[0].Name, inventory[1].Name, inventory[2].Name, inventory[3].Name, inventory[4].Name, inventory[5].Name, inventory[6].Name));
 

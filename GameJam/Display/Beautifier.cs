@@ -11,7 +11,7 @@ namespace GameJam.Graphic
     {
         public static void CoolPanel(string panelHeader, string panelText)
         {
-            Console.WriteLine("\n \n");
+            Console.WriteLine("\n");
             var panel = new Panel(panelText);
             panel.Header(panelHeader);
             panel.BorderColor(Color.Red3);
