@@ -115,10 +115,19 @@ namespace GameJam.Character
         private static void PickFromInventory(Items item)
         {
 
-            Player.Eat(item);
-            inventory.Remove(item);
-            Items empty_slot = new Items("Empty_Slot", 0, 0);
-            inventory.Add(empty_slot);
+            bool couldEat = Player.Eat(item);
+
+            if (couldEat == true)
+            {
+                inventory.Remove(item);
+                Items empty_slot = new Items("Empty_Slot", 0, 0);
+                inventory.Add(empty_slot);
+            }
+            else
+            {
+                Console.WriteLine("");
+            }
+
 
         }
     }

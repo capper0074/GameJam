@@ -20,6 +20,13 @@ namespace GameJam.Graphic
 
         private static string gameInfo = "  _____        __      \r\n |_   _|      / _|     \r\n   | |  _ __ | |_ ___  \r\n   | | | '_ \\|  _/ _ \\ \r\n  _| |_| | | | || (_) |\r\n |_____|_| |_|_| \\___/ \r\n                       \r\n                       ";
 
+        private static string gameStart = "   _____                         _____ _             _   \r\n  / ____|                       / ____| |           | |  \r\n | |  __  __ _ _ __ ___   ___  | (___ | |_ __ _ _ __| |_ \r\n | | |_ |/ _` | '_ ` _ \\ / _ \\  \\___ \\| __/ _` | '__| __|\r\n | |__| | (_| | | | | | |  __/  ____) | || (_| | |  | |_ \r\n  \\_____|\\__,_|_| |_| |_|\\___| |_____/ \\__\\__,_|_|   \\__|\r\n                                                         \r\n                                                         ";
+
+        public static void Ascii_GameStart()
+        {
+            Console.WriteLine(gameStart);
+        }
+
         public static void Ascii_GameInfo()
         {
             Console.WriteLine(gameInfo);

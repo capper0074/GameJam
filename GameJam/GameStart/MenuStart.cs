@@ -27,23 +27,45 @@ namespace GameJam.GameStart
 
                 bool loopStage = true;
 
+                int nameCounter = 0;
+
                 if (playerChoice == "Start the game")
                 {
                     Console.Clear();
                     Info.GameInfo();
+                    AsciiArt.Ascii_GameStart();
+                    Beautifier.CoolLine();
+                    Beautifier.CoolCenterLine("Just so you know, you only have 3 tries to do this", "blue");
+                    Console.ReadLine();
+                    Console.Clear();
 
                     while (loopStage == true)
                     {
+                        AsciiArt.Ascii_GameStart();
+                        Beautifier.CoolLine();
+                        Beautifier.CoolCenterLine($"You have {3 - nameCounter} tries left", "red");
                         Beautifier.CoolCenterLine("Hvad hedder du?", "blue");
                         Player.Name = Console.ReadLine();
-                        if (Player.Name == "")
+                        
+                        if (nameCounter == 3)
+                        {
+                            Beautifier.CoolCenterLine("You fucking idiot, you did not have enough brain cells so your name are now idiot", "red");
+                            Player.Name = "Idiot";
+                            loopStage = false;
+                            Console.ReadLine();
+                        }
+                        else if (Player.Name == "")
                         {
                             Console.WriteLine("Er du dum? Skriv dit navn!");
+                            nameCounter++;
                             loopStage = true;
+                            Console.Clear();
                         }
                         else
                         {
                             loopStage = false;
+                            nameCounter++;
+                            Console.Clear();
                         }
                     }
 
