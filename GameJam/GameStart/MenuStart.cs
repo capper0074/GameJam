@@ -47,7 +47,7 @@ namespace GameJam.GameStart
                         Beautifier.CoolCenterLine("Hvad hedder du?", "blue");
                         Player.Name = Console.ReadLine();
                         
-                        if (nameCounter == 3)
+                        if (nameCounter == 2)
                         {
                             Beautifier.CoolCenterLine("You fucking idiot, you did not have enough brain cells so your name are now idiot", "red");
                             Player.Name = "Idiot";

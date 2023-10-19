@@ -13,6 +13,7 @@ namespace GameJam.GameStart
         public static void GameInfo()
         {
             AsciiArt.Ascii_GameInfo();
+            Beautifier.CoolLine();
             Beautifier.CoolPanel("", "Hej og velkommen til dette eventyr"); //Skal laves om
             Console.ReadKey();
             Console.Clear();

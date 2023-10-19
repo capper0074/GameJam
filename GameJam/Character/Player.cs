@@ -38,7 +38,9 @@ namespace GameJam.Character
         public static void Display_Stats()
         {
             Console.Clear();
-            Console.WriteLine("Your name are: " + Name);
+            AsciiArt.Ascii_Stats();
+            Beautifier.CoolLine();
+            Beautifier.CoolWrite("green", "Your name are: ", "white", $"{Player.Name} \n");
             Beautifier.CoolBar(Health, Stamina);
         }
 
