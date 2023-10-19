@@ -26,10 +26,10 @@ namespace GameJam.Character
 
             if (inventory.Count == 0)
             {
-                Items cookie = new Items("Cookie", 10);
+                Items cookie = new Items("Cookie", 5, 10);
                 inventory.Add(cookie);
 
-                Items empty_slot = new Items("Empty_Slot", 0);
+                Items empty_slot = new Items("Empty_Slot", 0, 0);
 
                 for (int i = 0; i < 6; i++)
                 {
@@ -117,7 +117,7 @@ namespace GameJam.Character
 
             Player.Eat(item);
             inventory.Remove(item);
-            Items empty_slot = new Items("Empty_Slot", 0);
+            Items empty_slot = new Items("Empty_Slot", 0, 0);
             inventory.Add(empty_slot);
 
         }

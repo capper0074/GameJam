@@ -49,28 +49,28 @@ namespace GameJam.Character
 
         public static void Eat(Items food) //Lortet er forkert
         {
-            if(Health + food.Item_stat > 100)
+            if(Health + food.HealthStat !> 100 && Stamina + food.StaminaStat !> 100)
             {
-                Health = 100;
-                if(Stamina + food.Item_stat > 100)
-                {
-                    Stamina = 100;
-                }
-                else
-                {
-                    Stamina += food.Item_stat;
-                }
+                Console.Clear();
+                AsciiArt.Ascii_StatIncrease();
+                Beautifier.CoolLine();
+                Beautifier.CoolWrite("purple", $"Your Health have increased by {food.HealthStat}");
+                Beautifier.CoolWrite("purple", $"Your Stamina have increased by {food.StaminaStat}");
             }
             else
             {
-                Health += food.Item_stat;
+                Console.Clear();
+                AsciiArt.Ascii_GameInfo();
+                Beautifier.CoolLine();
+                Beautifier.CoolWrite("red", "Are you sure, you want to eat this \n if u do "); 
             }
+
 
             Console.Clear();
             AsciiArt.Ascii_StatIncrease();
             Beautifier.CoolLine();
-            Beautifier.CoolWrite("purple", $"Your Health have increased by {food.Item_stat}");
-            Beautifier.CoolWrite("purple", $"Your Stamina have increased by {food.Item_stat}");
+            //Beautifier.CoolWrite("purple", $"Your Health have increased by {food.Item_stat}");
+            //Beautifier.CoolWrite("purple", $"Your Stamina have increased by {food.Item_stat}");
         }
 
     }

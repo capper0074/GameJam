@@ -10,12 +10,15 @@ namespace GameJam.Stuff
     {
         public string Name { get; set; }
 
-        public int Item_stat { get; set; }
+        public int HealthStat { get; set; }
 
-        public Items(string name, int item_stat)
+        public int StaminaStat { get; set; }
+
+        public Items(string name, int healthStat, int staminaStat)
         {
             Name = name;
-            Item_stat = item_stat;
+            HealthStat = healthStat;
+            StaminaStat = staminaStat;
         }
 
     }

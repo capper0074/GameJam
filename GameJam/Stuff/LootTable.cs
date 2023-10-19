@@ -24,10 +24,8 @@ namespace GameJam.Stuff
             if (!isInitialize)
             {
 
-                Items beer = new Items("Beer", 20);
-                Items snus = new Items("Snus", 25);
-                lootTable.Add(beer);
-                lootTable.Add(snus);
+                Items cookie = new Items("Cokkie", 5, 10);
+                lootTable.Add(cookie);
 
                 isInitialize = true;
             }

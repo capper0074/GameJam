@@ -18,6 +18,13 @@ namespace GameJam.Graphic
 
         private static string playerStatIncrease = "   _____ _        _         _                                    \r\n  / ____| |      | |       (_)                                   \r\n | (___ | |_ __ _| |_ ___   _ _ __   ___ _ __ ___  __ _ ___  ___ \r\n  \\___ \\| __/ _` | __/ __| | | '_ \\ / __| '__/ _ \\/ _` / __|/ _ \\\r\n  ____) | || (_| | |_\\__ \\ | | | | | (__| | |  __/ (_| \\__ \\  __/\r\n |_____/ \\__\\__,_|\\__|___/ |_|_| |_|\\___|_|  \\___|\\__,_|___/\\___|\r\n                                                                 \r\n                                                                 ";
 
+        private static string gameInfo = "  _____        __      \r\n |_   _|      / _|     \r\n   | |  _ __ | |_ ___  \r\n   | | | '_ \\|  _/ _ \\ \r\n  _| |_| | | | || (_) |\r\n |_____|_| |_|_| \\___/ \r\n                       \r\n                       ";
+
+        public static void Ascii_GameInfo()
+        {
+            Console.WriteLine(gameInfo);
+        }
+
         public static void Ascii_StatIncrease()
         {
             Console.WriteLine(playerStatIncrease);
