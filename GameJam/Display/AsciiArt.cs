@@ -22,6 +22,20 @@ namespace GameJam.Graphic
 
         private static string gameStart = "   _____                         _____ _             _   \r\n  / ____|                       / ____| |           | |  \r\n | |  __  __ _ _ __ ___   ___  | (___ | |_ __ _ _ __| |_ \r\n | | |_ |/ _` | '_ ` _ \\ / _ \\  \\___ \\| __/ _` | '__| __|\r\n | |__| | (_| | | | | | |  __/  ____) | || (_| | |  | |_ \r\n  \\_____|\\__,_|_| |_| |_|\\___| |_____/ \\__\\__,_|_|   \\__|\r\n                                                         \r\n                                                         ";
 
+        private static string gameCombat = "   _____                _           _   \r\n  / ____|              | |         | |  \r\n | |     ___  _ __ ___ | |__   __ _| |_ \r\n | |    / _ \\| '_ ` _ \\| '_ \\ / _` | __|\r\n | |___| (_) | | | | | | |_) | (_| | |_ \r\n  \\_____\\___/|_| |_| |_|_.__/ \\__,_|\\__|\r\n                                        \r\n                                        ";
+
+        private static string gameIntro = "  _____       _             \r\n |_   _|     | |            \r\n   | |  _ __ | |_ _ __ ___  \r\n   | | | '_ \\| __| '__/ _ \\ \r\n  _| |_| | | | |_| | | (_) |\r\n |_____|_| |_|\\__|_|  \\___/ \r\n                            \r\n                            ";
+
+        public static void Ascii_GameIntro()
+        {
+            Console.WriteLine(gameIntro);
+        }
+
+        public static void Ascii_GameCombat()
+        {
+            Console.WriteLine(gameCombat);
+        }
+
         public static void Ascii_GameStart()
         {
             Console.WriteLine(gameStart);

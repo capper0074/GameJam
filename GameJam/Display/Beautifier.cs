@@ -44,6 +44,16 @@ namespace GameJam.Graphic
                 .AddItem("Stamina", stamina, Color.Blue));
         }
 
+        public static void CoolCombatBar(int health, int stamina, string EnemyName)
+        {
+            AnsiConsole.Write(new BarChart()
+                .Width(60)
+                .Label($"[green bold underline]{EnemyName}[/]")
+                .CenterLabel()
+                .AddItem("Health", health, Color.Red)
+                .AddItem("Stamina", stamina, Color.Blue));
+        }
+
 
         public static void CoolBarCombat(int health, string name)
         {

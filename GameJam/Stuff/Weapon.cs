@@ -10,12 +10,16 @@ namespace GameJam.Stuff
     {
         public string Name { get; set; }
 
-        public int Weapon_Attack { get; set; }
+        public int WeaponAttack { get; set; }
 
-        public Weapon (String name, int weapon_Attack)
+        public int WeaponCrit { get; set; }
+
+        public Weapon (String name, int weapon_Attack, int weaponCrit)
         {
             Name = name;
-            Weapon_Attack = weapon_Attack;
+            WeaponAttack = weapon_Attack;
+            WeaponCrit = weaponCrit;
+
         }
 
 

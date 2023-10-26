@@ -9,14 +9,14 @@ namespace GameJam.Combat
     public class Creatures
     {
         public string Name { get; set; }
-        public int Attack_Value { get; set; }
-        public int Enemy_Health { get; set; }
+        public int EnemyAttack { get; set; }
+        public int EnemyHealth { get; set; }
 
         public Creatures(string name, int attack_Value, int enemy_Health)
         {
             Name = name;
-            Attack_Value = attack_Value;
-            Enemy_Health = enemy_Health;
+            EnemyAttack = attack_Value;
+            EnemyHealth = enemy_Health;
         }
     }
 }

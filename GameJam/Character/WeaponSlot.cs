@@ -24,8 +24,8 @@ namespace GameJam.Character
 
             if (!isInitialize)
             {
-                Weapon perkerKniv = new Weapon("PerkerKniv", 5);
-                weapons.Add(perkerKniv);
+                Weapon TestVåben = new Weapon("TestVåben", 5, 10);
+                weapons.Add(TestVåben);
                 isInitialize = true;
             }
 
@@ -40,8 +40,8 @@ namespace GameJam.Character
             {
                 Console.Clear();
                 Console.WriteLine("Congrats you just found a new weapon");
-                Console.WriteLine("you found: " + weapon.Name + " And it's stats are: " + weapon.Weapon_Attack);
-                Console.WriteLine("your current weapon is: " + weapons[0].Name + " And it's stats are: " + weapons[0].Weapon_Attack);
+                Console.WriteLine("you found: " + weapon.Name + " And it's stats are: " + weapon.WeaponAttack);
+                Console.WriteLine("your current weapon is: " + weapons[0].Name + " And it's stats are: " + weapons[0].WeaponAttack);
                 Console.WriteLine("Do you want to switch Yes / No");
                 string playerChoice = Console.ReadLine();
 
@@ -63,7 +63,7 @@ namespace GameJam.Character
 
         public static void DisplayCurrentWeapon()
         {
-            Console.WriteLine("This is your current weapon: " + weapons[0].Name + " And it's stats are: " + weapons[0].Weapon_Attack);
+            Console.WriteLine("This is your current weapon: " + weapons[0].Name + " And it's stats are: " + weapons[0].WeaponAttack);
         }
 
         public static string DisplayName()
@@ -73,7 +73,7 @@ namespace GameJam.Character
 
         public static int DisplayStat()
         {
-            return weapons[0].Weapon_Attack;
+            return weapons[0].WeaponAttack;
         }
 
 

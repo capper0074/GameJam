@@ -24,10 +24,10 @@ namespace GameJam.Combat
             if (!isInitialize)
             {
 
-                Creatures møller = new Creatures("Møller", 1, 10); // Base stats. > modified later
-                Creatures drunkPeter = new("Drunk Peter",3, 15);
-                Creatures wonderWoman = new("Wonder Woman", 1, 12);
-                Creatures randomGuy = new("Random Guy", 4, 10);
+                Creatures møller = new Creatures("Møller", 1, 25); // Base stats. > modified later
+                Creatures drunkPeter = new("Drunk Peter",3, 45);
+                Creatures wonderWoman = new("Wonder Woman", 1, 32);//The fuck
+                Creatures randomGuy = new("Random Guy", 4, 30);
 
                 enemies.Add(møller);
                 enemies.Add(drunkPeter);
@@ -44,32 +44,32 @@ namespace GameJam.Combat
             int num = rnd.Next(0, enemies.Count);
             if (dif == "Esay")
             {
-                enemies[num].Enemy_Health += 0;
-                enemies[num].Attack_Value += 0;
+                enemies[num].EnemyHealth += 0;
+                enemies[num].EnemyAttack += 0;
                 return enemies[num];
             }
 
             if (dif == "Moderate")
             {
 
-                enemies[num].Enemy_Health += 0;
-                enemies[num].Attack_Value += 0;
+                enemies[num].EnemyHealth += 5;
+                enemies[num].EnemyAttack += 1;
                 return enemies[num];
             }
 
             if (dif == "Difficult")
             {
 
-                enemies[num].Enemy_Health += 0;
-                enemies[num].Attack_Value += 0;
+                enemies[num].EnemyHealth += 10;
+                enemies[num].EnemyAttack += 4;
                 return enemies[num];
             }
 
             if (dif == "Hard")
             {
 
-                enemies[num].Enemy_Health += 0;
-                enemies[num].Attack_Value += 0;
+                enemies[num].EnemyHealth += 20;
+                enemies[num].EnemyAttack += 8;
                 return enemies[num];
             }
 
